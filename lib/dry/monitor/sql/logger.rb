@@ -53,8 +53,8 @@ module Dry
         end
 
         def subscribe(notifications)
-          notifications.subscribe(:sql) do |time:, name:, query:|
-            log_query(time, name, query)
+          notifications.subscribe(:sql) do |event|
+            log_query(event[:time], event[:name], event[:query])
           end
         end
 

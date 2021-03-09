@@ -31,12 +31,12 @@ module Dry
         end
 
         def attach(rack_monitor)
-          rack_monitor.on(:start) do |env:|
-            log_start_request(env)
+          rack_monitor.on(:start) do |event|
+            log_start_request(event[:env])
           end
 
-          rack_monitor.on(:stop) do |env:, status:, time:|
-            log_stop_request(env, status, time)
+          rack_monitor.on(:stop) do |event|
+            log_stop_request(event[:env], event[:status], event[:time])
           end
 
           rack_monitor.on(:error) do |event|
