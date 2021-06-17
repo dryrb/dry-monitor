@@ -9,7 +9,7 @@ module Dry
       class Logger
         extend Dry::Configurable
 
-        setting :filtered_params, %w[_csrf password]
+        setting :filtered_params, default: %w[_csrf password]
 
         REQUEST_METHOD = "REQUEST_METHOD"
         PATH_INFO = "PATH_INFO"

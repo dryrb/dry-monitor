@@ -37,8 +37,8 @@ module Dry
           Logger.include(RougeColorizer)
         end
 
-        setting :theme, nil
-        setting :message_template, %(  Loaded %s in %sms %s)
+        setting :theme
+        setting :message_template, default: %(  Loaded %s in %sms %s)
 
         attr_reader :config, :logger, :template
 
